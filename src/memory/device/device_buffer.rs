@@ -263,6 +263,9 @@ impl<T> Drop for DeviceBuffer<T> {
     }
 }
 
+unsafe impl<T> Send for DeviceBuffer<T> {}
+unsafe impl<T> Sync for DeviceBuffer<T> {}
+
 #[cfg(test)]
 mod test_device_buffer {
     use super::*;

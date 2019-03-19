@@ -592,6 +592,9 @@ impl<T: DeviceCopy> Drop for UnifiedBuffer<T> {
     }
 }
 
+unsafe impl<T: DeviceCopy> Send for UnifiedBuffer<T> {}
+unsafe impl<T: DeviceCopy> Sync for UnifiedBuffer<T> {}
+
 #[cfg(test)]
 mod test_unified_box {
     use super::*;

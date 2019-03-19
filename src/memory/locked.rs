@@ -267,6 +267,9 @@ impl<T: DeviceCopy> Drop for LockedBuffer<T> {
     }
 }
 
+unsafe impl<T: DeviceCopy> Send for LockedBuffer<T> {}
+unsafe impl<T: DeviceCopy> Sync for LockedBuffer<T> {}
+
 #[cfg(test)]
 mod test {
     use super::*;
