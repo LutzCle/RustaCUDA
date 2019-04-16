@@ -15,6 +15,10 @@ use std::ptr;
 pub struct Module {
     inner: cuda::CUmodule,
 }
+
+unsafe impl Send for Module {}
+unsafe impl Sync for Module {}
+
 impl Module {
     /// Load a module from the given file name into the current context.
     ///

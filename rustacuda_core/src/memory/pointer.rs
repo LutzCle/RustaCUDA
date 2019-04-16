@@ -17,6 +17,9 @@ use core::ptr;
 #[derive(Debug, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub struct DevicePointer<T>(*mut T);
 unsafe impl<T> DeviceCopy for DevicePointer<T> {}
+unsafe impl<T: Send> Send for DevicePointer<T> {}
+unsafe impl<T: Sync> Sync for DevicePointer<T> {}
+
 impl<T> DevicePointer<T> {
     /// Returns a null device pointer.
     ///
