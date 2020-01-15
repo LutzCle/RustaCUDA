@@ -192,8 +192,29 @@ pub enum DeviceAttribute {
     ComputePreemptionSupported = 90,
     /// Device can access host registered memory at the same virtual address as the CPU
     CanUseHostPointerForRegisteredMem = 91,
+    /// cuStreamBatchMemOp and related APIs are supported
+    CanUseStreamMemOps = 92,
+    /// 64-bit operations are supported in cuStreamBatchMemOp and related APIs
+    CanUse64BitStreamMemOps = 93,
+    /// CU_STREAM_WAIT_VALUE_NOR is supported
+    CanUseStreamWaitValueNor = 94,
+    /// Device supports launching cooperative kernels via cuLaunchCooperativeKernel
+    CooperativeLaunch = 95,
+    /// Device can participate in cooperative kernels launched via cuLaunchCooperativeKernelMultiDevice
+    CooperativeMultiDeviceLaunch = 96,
+    /// Maximum optin shared memory per block
+    MaxSharedMemPerBlockOptin = 97,
+    /// Both the CU_STREAM_WAIT_VALUE_FLUSH flag and the CU_STREAM_MEM_OP_FLUSH_REMOTE_WRITES MemOp are
+    /// supported on the device
+    CanFlushRemoteWrites = 98,
+    /// Device supports host memory registration via cudaHostRegister
+    HostRegisterSupported = 99,
+    /// Device accesses pageable memory via the host's page tables
+    PageableMemoryAccessUsesHostPageTables = 100,
+    /// The host can directly access managed memory on the device without migration
+    DirectManagedMemAccessFromHost = 101,
     #[doc(hidden)]
-    __NonExhaustive = 92,
+    __NonExhaustive = 102,
 }
 
 /// Opaque handle to a CUDA device.
