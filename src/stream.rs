@@ -57,6 +57,9 @@ bitflags! {
 pub struct Stream {
     inner: CUstream,
 }
+
+unsafe impl Send for Stream {}
+
 impl Stream {
     /// Create a new stream with the given flags and optional priority.
     ///
